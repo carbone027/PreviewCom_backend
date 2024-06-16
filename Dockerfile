@@ -30,6 +30,7 @@ EOF
 ENV PATH="/opt/cartesi/bin:${PATH}"
 
 WORKDIR /opt/cartesi/dapp
+COPY --from=model /usr/src/app/model /opt/cartesi/dapp/model
 COPY ./requirements.txt .
 
 RUN <<EOF
