@@ -1,3 +1,11 @@
+# build stage: generates model
+FROM python:3.10.12 as model
+
+WORKDIR /usr/src/app
+COPY ./model .
+RUN pip3 install -r requirements.txt
+RUN python3 build_model.py
+
 # syntax=docker.io/docker/dockerfile:1
 FROM --platform=linux/riscv64 cartesi/python:3.10-slim-jammy
 
