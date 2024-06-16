@@ -20,7 +20,7 @@ if include:
 # pre-processes data to apply OHE and fill in absent values
 independent_vars = train_df.columns.difference([dependent_var])
 categoricals = []
-for col, col_type in train_df[independent_vars].dtypes.iteritems():
+for col, col_type in train_df[independent_vars].dtypes.items():
     if col_type == 'O':
         # this is an object (categorical) type: will apply OHE to them
         categoricals.append(col)

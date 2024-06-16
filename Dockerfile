@@ -30,7 +30,6 @@ EOF
 ENV PATH="/opt/cartesi/bin:${PATH}"
 
 WORKDIR /opt/cartesi/dapp
-COPY --from=model /usr/src/app/model /opt/cartesi/dapp/model
 COPY ./requirements.txt .
 
 RUN <<EOF
@@ -40,6 +39,7 @@ find /usr/local/lib -type d -name __pycache__ -exec rm -r {} +
 EOF
 
 COPY ./dapp.py .
+COPY --from=model /usr/src/app/model.py .
 
 ENV ROLLUP_HTTP_SERVER_URL="http://127.0.0.1:5004"
 
